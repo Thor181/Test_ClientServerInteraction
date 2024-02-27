@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Numerics;
 using Test_ClientServerInteraction.Models;
 
 namespace Test_ClientServerInteraction.Controllers
@@ -11,6 +12,7 @@ namespace Test_ClientServerInteraction.Controllers
         {
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
@@ -27,6 +29,12 @@ namespace Test_ClientServerInteraction.Controllers
         public void SimpleGetParam(string param1)
         {
             Debug.WriteLine($"Simple get. Param \"{param1}\"");
+        }
+
+        [HttpGet]
+        public void SimpleGetParamAsObject(Data2 data)
+        {
+            Debug.WriteLine($"Simple get. Param \"{data.Body1} {data.Body2}\"");
         }
 
         [HttpPost]
@@ -57,6 +65,7 @@ namespace Test_ClientServerInteraction.Controllers
         public void FormPostParamAsObject(Data data)
         {
             Debug.WriteLine($"Form post. Param \"{data.Body}\"");
+            
         }
 
     }
@@ -64,5 +73,11 @@ namespace Test_ClientServerInteraction.Controllers
     public class Data
     {
         public string Body { get; set; }
+    }
+
+    public class Data2
+    {
+        public string Body1 { get; set; }
+        public string Body2 { get; set; }
     }
 }
