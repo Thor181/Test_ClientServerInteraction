@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <div style="display: flex; gap: 5px; flex-wrap: wrap;"> 
+        <button class="btn btn-primary" id="simple-get">GET</button>
+        <button class="btn btn-primary" id="simple-get-params">GET Params</button>
+        <button class="btn btn-warning" id="simple-post">POST</button>
+        <button class="btn btn-warning" id="simple-post-params">POST Params</button>
+        <form asp-controller="Home" asp-action="FormPost" method="post">
+            <button class="btn btn-success" id="form-simple-post">Form POST</button>
+        </form>
+        <form asp-controller="Home" asp-action="FormPostParam" asp-route-param="hello" method="post">
+            <button class="btn btn-success" id="form-simple-post-params" type="submit">Form POST Params</button>
+        </form>
+        <form asp-controller="Home" asp-action="FormPostParamAsObject" asp-route-body="hello" method="post">
+            <button class="btn btn-success" id="form-simple-post-params-obj">Form POST Params as object</button>
+        </form>
+    </div>
+</div>
